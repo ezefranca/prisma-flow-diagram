@@ -4,16 +4,46 @@
 \begin{document}
 
 \begin{figure}[H]
-\resizebox{0.9\textwidth}{!}{
+\resizebox{\textwidth}{!}{
 \prismaflowstart
-\prismaflownode{n1a}{left=of start}{Records identified through database searching (n = 251)}
-\prismaflownode{n1b}{right=of start}{Additional records identified through other sources (n = 0)}
-\prismaflownode{n2}{below=of n1a}{Records after duplicates removed (n = 41)}
+% Identification Phase
+\prismaflownode{n1a}{left=of start}{Records identified through database searching (n = 512)}
+\prismaflownode{n1b}{right=of start}{Additional records identified through other sources (n = 45)}
+\prismaflownode{n2}{below=of start}{Records after duplicates removed (n = 420)}
+
+% Screening Phase
+\prismaflownode{n3}{below=of n2}{Records screened (n = 420)}
+\prismaflownode{n4}{right=of n3}{Records excluded (n = 350)}
+
+% Eligibility Phase
+\prismaflownode{n5}{below=of n3}{Full-text articles assessed for eligibility (n = 70)}
+\prismaflownode{n6}{right=of n5}{Full-text articles excluded, with reasons (n = 40)\\
+- Not meeting inclusion criteria (n = 25)\\
+- Insufficient data (n = 10)\\
+- Duplicate studies (n = 5)}
+
+% Inclusion Phase
+\prismaflownode{n7}{below=of n5}{Studies included in qualitative synthesis (n = 30)}
+\prismaflownode{n8}{below=of n7}{Studies included in quantitative synthesis (meta-analysis) (n = 25)}
+
+% Arrows for Identification Phase
 \prismaflowarrow{n1a}{n2}
 \prismaflowarrow{n1b}{n2}
+
+% Arrows for Screening Phase
+\prismaflowarrow{n2}{n3}
+\prismaflowarrow{n3}{n4}
+
+% Arrows for Eligibility Phase
+\prismaflowarrow{n3}{n5}
+\prismaflowarrow{n5}{n6}
+
+% Arrows for Inclusion Phase
+\prismaflowarrow{n5}{n7}
+\prismaflowarrow{n7}{n8}
 \prismaflowend
 }
-\caption{PRISMA Flow Diagram}
+\caption{PRISMA Flow Diagram for Systematic Review}
 \label{fig:prisma}
 \end{figure}
 

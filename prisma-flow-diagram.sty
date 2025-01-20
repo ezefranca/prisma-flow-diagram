@@ -1,6 +1,9 @@
 \ProvidesPackage{prisma-flow-diagram}[2025/01/20 PRISMA Flow Diagram Generator]
 
+% Automatically load required packages
 \RequirePackage{tikz}
+\RequirePackage{graphicx} % For \resizebox
+\RequirePackage{float}    % For H option in figures
 \usetikzlibrary{positioning, calc, chains, arrows.meta}
 
 % Define TikZ styles
