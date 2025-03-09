@@ -1,5 +1,5 @@
 
-# prisma-flow-diagram Package
+# prisma-flow-diagram Package [![DOI](https://zenodo.org/badge/919428141.svg)](https://doi.org/10.5281/zenodo.14996713)
 
 This package provides an abstraction for creating PRISMA 2009 flow diagrams in LaTeX. It simplifies the process of building these diagrams by providing intuitive commands while maintaining full compatibility with TikZ.
 
