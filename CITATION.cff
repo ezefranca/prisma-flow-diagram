@@ -1,13 +1,13 @@
-
 cff-version: 1.2.0
 message: "If you use this package in your research, please cite it as below."
 authors:
-  - family-names: França
+  - family-names: Santos
     given-names: Ezequiel
     orcid: "0000-0001-9321-8444"
 title: "prisma-flow-diagram: A LaTeX package for PRISMA 2009 flow diagrams"
 version: "1.0.0"
 url: "https://github.com/ezefranca/prisma-flow-diagram"
 repository-code: "https://github.com/ezefranca/prisma-flow-diagram"
+doi: "10.5281/zenodo.14996713"
 date-released: "2025-01-20"
 license: "LPPL-1.3c"
