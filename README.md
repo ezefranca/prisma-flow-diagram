@@ -1,7 +1,14 @@
 
 # prisma-flow-diagram Package [![DOI](https://zenodo.org/badge/919428141.svg)](https://doi.org/10.5281/zenodo.14996713)
 
-This package provides an abstraction for creating PRISMA 2009 flow diagrams in LaTeX. It simplifies the process of building these diagrams by providing intuitive commands while maintaining full compatibility with TikZ.
+## PRISMA Flow Diagram (Overleaf Template)
+
+Easily import this template into Overleaf:
+
+[![Open in Overleaf](https://img.shields.io/badge/Open%20in-Overleaf-brightgreen?style=for-the-badge&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/ezefranca/prisma-flow-diagram/archive/refs/heads/main.zip)
+
+
+This package provides an abstraction for creating PRISMA 2020 flow diagrams in LaTeX. It simplifies the process of building these diagrams by providing intuitive commands while maintaining full compatibility with TikZ.
 
 ![Example](/example.png)
 
@@ -81,7 +88,7 @@ Below is a full example of how to use the package:
 
 \prismaflowend
 }
-\caption{PRISMA 2009 Flow Diagram}
+\caption{PRISMA 2020 Flow Diagram}
 \label{fig:prisma}
 \end{figure}
 
