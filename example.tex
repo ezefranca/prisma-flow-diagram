@@ -1,33 +1,62 @@
 \documentclass{article}
-\usepackage{prisma-flow-diagram}
+\usepackage{prisma-flow-diagram/prisma-flow-diagram} % Load the PRISMA Flow Diagram package
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Variables Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modify the values below to update the PRISMA diagram
+\newcommand{\recordsIdentified}{251}       % Records identified through database searching
+\newcommand{\otherSources}{0}              % Additional records identified through other sources
+\newcommand{\afterDuplicates}{41}          % Records after duplicates removed
+\newcommand{\recordsScreened}{210}         % Records screened
+\newcommand{\recordsExcluded}{175}         % Records excluded
+\newcommand{\fullTextAssessed}{35}         % Full-text articles assessed for eligibility
+\newcommand{\fullTextExcluded}{4}          % Full-text articles excluded, with reasons
+\newcommand{\notRelevant}{3}               % Not Relevant papers
+\newcommand{\notOpenAvailable}{2}          % Not Open/Available papers
+\newcommand{\qualitativeSynthesis}{30}     % Studies included in qualitative synthesis
+\newcommand{\quantitativeSynthesis}{30}    % Studies included in quantitative synthesis (meta-analysis)
 
 \begin{document}
+
+\title{PRISMA 2020 Flow Diagram}
+\author{Overleaf Template}
+\date{\today}
+
+\maketitle
+
+\section{Introduction}
+This document provides a PRISMA 2020 Flow Diagram for systematic reviews. Modify the values in the \textbf{Variables Section} to update the flowchart dynamically.
 
 \begin{figure}[H]
 \resizebox{\textwidth}{!}{
 \prismaflowstart
 
-% Nodes at the top
-\prismaflownode{n1a}{left=of tc}{Records identified through database searching (n = 251)}{};
-\prismaflownode{n1b}{right=of tc}{Additional records identified through other sources (n = 0)}{};
-\prismaflownode{n2}{below=of tc |- n1a.south}{Records after duplicates removed (n = 41)}{n1a};
-\prismaflowarrow{n1b}{n2};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRISMA Flow Diagram Structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Identification Phase
+\prismaflownode{n1a}{left=of tc}{Records identified through database searching (n = \recordsIdentified)}{};
+\prismaflownode{n1b}{right=of tc}{Additional records identified through other sources (n = \otherSources)}{};
+\prismaflownode{n2}{below=of tc |- n1a.south}{Records after duplicates removed (n = \afterDuplicates)}{n1a};
+\prismaflowarrow{n1b}{n2}; % Arrow connecting sources to filtered records
 
 % Screening Phase
-\prismaflownode{n3}{below=of n2}{Records screened (n = 210)}{n2};
-\prismaflownode{n3r}{right=of n3}{Records excluded (n = 175)}{};
+\prismaflownode{n3}{below=of n2}{Records screened (n = \recordsScreened)}{n2};
+\prismaflownode{n3r}{right=of n3}{Records excluded (n = \recordsExcluded)}{};
 \prismaflowarrow{n3}{n3r};
 
 % Eligibility Phase
-\prismaflownode{n4}{below=of n3}{Full-text articles assessed for eligibility (n = 35)}{n3};
-\prismaflownode{n4r}{right=of n4}{Full-text articles excluded, with reasons (n = 4) \\ - Not Relevant (n = 3) \\ - Not Open/Available paper (n = 2)}{};
+\prismaflownode{n4}{below=of n3}{Full-text articles assessed for eligibility (n = \fullTextAssessed)}{n3};
+\prismaflownode{n4r}{right=of n4}{Full-text articles excluded, with reasons (n = \fullTextExcluded) \\ - Not Relevant (n = \notRelevant) \\ - Not Open/Available paper (n = \notOpenAvailable)}{};
 \prismaflowarrow{n4}{n4r};
 
 % Inclusion Phase
-\prismaflownode{n5}{below=of n4}{Studies included in qualitative synthesis (n = 30)}{n4};
-\prismaflownode{n6}{below=of n5}{Studies included in quantitative synthesis (meta-analysis)}{n5};
+\prismaflownode{n5}{below=of n4}{Studies included in qualitative synthesis (n = \qualitativeSynthesis)}{n4};
+\prismaflownode{n6}{below=of n5}{Studies included in quantitative synthesis (meta-analysis) (n = \quantitativeSynthesis)}{n5};
 
-% Labels
+% Labels for each section
 \prismalabel{1.3*\mh}{n1a.west}{Identification};
 \prismalabel{1.3*\mh}{n1a.west |- {$(n2)!0.6!(n3)$}}{Screening};
 \prismalabel{1.3*\mh}{n1a.west |- {$(n4)!0.2!(n5)$}}{Eligibility};
@@ -35,8 +64,16 @@
 
 \prismaflowend
 }
-\caption{PRISMA 2009 Flow Diagram}
+\caption{PRISMA 2020 Flow Diagram}
 \label{fig:prisma}
 \end{figure}
+
+\section{Instructions}
+1. \textbf{To update the numbers}, change the values in the \textbf{Variables Section} at the beginning of the document.
+2. \textbf{Recompile the document} in Overleaf, and the diagram will automatically update.
+3. \textbf{Ensure the PRISMA package is installed} (already included in Overleaf's default packages).
+
+\section{Conclusion}
+This template simplifies the creation of PRISMA flow diagrams in Overleaf. It ensures \textbf{consistency and ease of updating} for systematic reviews.
 
 \end{document}
