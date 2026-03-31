@@ -16,7 +16,7 @@
     },
     ml/.style args={#1/#2}{
         draw, rectangle, align=center, rounded corners, font=\small\bfseries, inner sep=2ex, 
-        outer sep=0pt, fill=cyan!30, minimum height=1.6*\mh, left=5mm of #2
+        outer sep=0pt, fill=cyan!30, minimum height=#1, left=5mm of #2
     },
     arrow/.style={
         thick,->,>=stealth
@@ -42,6 +42,45 @@
 % Add a left-side label
 \newcommand{\prismalabel}[3]{
     \node[ml=#1/#2] {\rotatebox{90}{\textbf{#3}}};
+}
+
+% Add fitted left-side label
+\newcommand{\prismalabelfitted}[5]{%
+% #1 = name
+% #2 = left reference node (for x-position)
+% #3 = top right-side node (for top y)
+% #4 = bottom right-side node (for bottom y)
+% #5 = text
+\node[
+    draw,
+    rounded corners,
+    fill=cyan!30,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum width=8mm,
+    text width=8mm,
+    align=center
+] (#1) at ($(#2.west)+(-9mm,0)$)
+{\rotatebox{90}{\textbf{#5}}};
+
+\path let
+    \p1 = (#3.north),
+    \p2 = (#4.south),
+    \p3 = (#1.center)
+in
+node[
+    draw,
+    rounded corners,
+    fill=cyan!30,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum width=8mm,
+    text width=8mm,
+    align=center,
+    anchor=center,
+    minimum height={\y1-\y2}
+] at (\x3,{(\y1+\y2)/2})
+{\rotatebox{90}{\textbf{#5}}};
 }
 
 % Add a manual arrow
